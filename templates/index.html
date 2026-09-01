@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>오늘의 메뉴 뽑기</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🍽️ 오늘의 메뉴 뽑기</h1>
+      <p class="subtitle">점심 메뉴 고민은 이제 그만!</p>
+    </header>
+
+    <section class="picker-card">
+      <div id="result" class="result">
+        <span class="placeholder">버튼을 눌러 오늘의 메뉴를 뽑아보세요</span>
+      </div>
+      <button id="pickBtn" class="btn primary">🎲 오늘의 메뉴 뽑기</button>
+    </section>
+
+    <section class="list-card">
+      <div class="list-header">
+        <h2>식당 목록</h2>
+        <button id="addToggleBtn" class="btn secondary">+ 식당 추가</button>
+      </div>
+
+      <form id="addForm" class="add-form hidden">
+        <input type="text" id="nameInput" placeholder="식당 이름" required />
+        <input type="text" id="categoryInput" placeholder="분류 (예: 한식, 중식) - 선택" />
+        <div class="add-form-actions">
+          <button type="submit" class="btn primary small">추가하기</button>
+          <button type="button" id="cancelAddBtn" class="btn ghost small">취소</button>
+        </div>
+      </form>
+
+      <ul id="restaurantList" class="restaurant-list"></ul>
+      <p id="emptyMsg" class="empty-msg hidden">아직 등록된 식당이 없어요. 식당을 추가해보세요!</p>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
